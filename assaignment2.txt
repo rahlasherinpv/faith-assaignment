@@ -1,0 +1,83 @@
+#assignment 2
+#program to check if a prime number is prime or not #user input
+'''
+x=int(input("enter the number"))                       #x=6
+print(x)                                              # false
+flag=False
+if x==1:
+    print("it is not prime")
+elif x>1:                                               #6>1
+    for i in range(2,x):                                #i in range of (2,6) ie 2 to 5
+        if (x%i)==0:                                    #6%2=0  entering loop
+             flag=True                                  #flag become true
+             break                                       
+    if flag:
+        print("number is not prime")
+    else:
+          print("number is prime")
+
+'''
+# write a pgm to check a no is even up to user inut while loop eg user input is 8 then 2,4,6,8
+'''
+x=int(input("enter the range"))
+i=2
+while i<=x:
+    print(i," ")                  #" " is use to get the outut in a line
+    i+=2
+
+'''
+
+''''
+x=int(input("enter the range"))
+i=2
+for i in range(2,x):
+    print(i," ")
+    i+=2
+'''
+#----------------------------------------------------------------------------------------------------------------------------
+#assaingment
+#-----------------------------------------------------------------------------------------------------------------------------
+#write a number to find the factorial of the input number
+
+'''
+x=int(input("enter the value"))
+
+if(x==0):
+    print("1")
+else:
+    for i in range(x):
+        if (i>=1):
+           x=x*i
+    print(x)
+'''
+
+#---------------------------------------------------------------------------------------------------------------------------------
+#given an integer n,print all integers less than or eqaul to n
+''''
+x=int(input("enter the value"))
+
+for i in range(x+1):
+    print(i,end=" ")
+'''
+#----------------------------------------------------------------------------------------------------------------------------
+#given an integer,print the sum of all even integers less than or equal to n
+'''
+x=int(input("enter the value"))
+j=0
+for i in range(x+1):
+    if (i%2==0):
+        j+=i
+
+print(j)
+'''
+#-------------------------------------------------------------------------------------------------------------------------------
+#given n,rint the sum of all integers less than or equal to n which are divisible by 3 or 5
+'''
+x=int(input("enter the value"))
+j=0
+for i in range(x+1):
+    if (i%3==0) or (i%5==0):
+        j+=i
+print(j)
+'''
+#--------------------------------------------------------------------------------------------------------------------------------

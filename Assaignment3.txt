@@ -1,0 +1,52 @@
+# input string is paliendrom
+
+def pal(a):
+    l = ''
+    for i in a:
+        l=i+l       #appending char in reverse oder 
+    return l
+x=input("enter the string")
+print(pal(x))
+if pal(x)==x:
+    print("is palindrom")
+else:
+    print("not palinddrom")
+    
+---------------------------------------------------------------------------------------------------------------------------
+
+# write a function to find factorial
+
+def fact(a):
+    if (a==0):
+        print("1")
+    else:
+        for i in range(2,a):
+            a=a*i
+
+    return a
+x=int(input("enter the value"))
+print(fact(x))
+-------------------------------------------------------------------------------------------------------------------------------------------
+#write a function to find fibinacci series
+
+def fib(a):
+    if a<=1:
+        return a
+    else:
+        return fib(a-1)+fib(a-2)
+n=int(input("enter the no of fibinocci series"))
+if n<=0:
+    print("enter a valid input")
+else:
+    for i in range(n):
+        print(fib(i),end=" ")
+********************************************************
+
+def fib(n):
+    l=[0]
+    a,b=0,1            #a=0 and b=1
+    for i in range(n-1):
+        a,b=b,a+b         #a=b and b=a+b
+        l.append(a)        #apend only a to l
+    return l
+print(fib(int(input("enter the number"))))
