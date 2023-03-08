@@ -1,0 +1,50 @@
+'''def inter(a,b):
+    c = set(a).intersection(set(b))
+    print(c)
+    return c
+print("enter 2 list of 5 values")
+list1=[]
+list2=[]
+for i in range(5):
+    list1.append(input("enter the value for list 1"))
+for i in range(5):
+    list2.append(input("enter the values for list 2"))
+
+inter(list1,list2)
+'''
+
+#2
+'''import re
+x=(input("enter the number"))
+j=0
+while len(x)>1:
+    j=j+1
+    y=re.findall('[0-9]',x)
+    #print(y)
+    c=1
+    for i in x:
+        c=c*int(i)
+    #print(c)
+    x=str(c)
+print(j)
+
+'''
+#3
+
+def collatz(a):
+    b=a
+    if a < 1000000:
+        while a>=1:
+            print(int(a), end=" ")
+            if a % 2 == 0:
+                a = (a/2)
+
+            elif a==  1:
+                break
+            else:
+                a = 3*a+1
+
+    else:
+        print("enter a value less than 1 million")
+x = int(input("enter a number"))
+collatz(x)
