@@ -1,0 +1,95 @@
+# assaignment
+#1# write a procedure that solve quaddratic equationss ussing the quadratic formula it should take as argument
+# three nos a,b,and cit should print error messsage if a is zero or if the roots are complex otherwisse it ssshould print the two roots
+''''
+
+
+def quad(a,b,c):
+    x = ((-b)+(((b**2)-(4*a*c))**.5))/2*a
+    y=((-b)-(((b**2)-(4*a*c))**.5))/2*a
+    if a==0:
+        print("error")
+    elif (b*b)<(4*a*c):
+        print("complex")
+    else:
+        print("roots are :",x, "&",y)
+    return
+
+a=int(input("enter value of a:"))
+b=int(input("enter vaalue of b:"))
+c=int(input("enter value of c:"))
+quad(a,b,c)
+#print(x)
+#1print(y)
+'''
+#2Write a program that reads in a string on the command line and returns a table of the frequency of occurrence of each word. Ignore the case. A sample run of the program would look this
+#In - 1
+#Hat - 1
+
+#This should involve writing a function that takes in a string and returns a dictionary with these letters and counts.
+
+
+'''def occ(o):
+    a = o.split(" ")           #str o will split and store as list in a
+    l = []
+    for i in range(len(a)):          
+        c =o.count(a[i])       
+        l.append(a[i] + " - " + str(c))
+        print(l)
+    g = set(l)
+    # print(set(l))
+    for x in g:
+        print(x)
+x=input("enter the string")
+occ(x)'''
+'''
+#3Write a program that accepts a sentence and calculate the number of letters and digits. Suppose the following input is supplied to the program: hello world! 123
+#Then, the output should be:
+#LETTERS 10
+#DIGITS 3
+
+'''
+import re
+x=str(input("enter the string"))
+print("LETTERS-",len(re.findall('[a-zA-Z]',x)))
+print("DIGITS-",len(re.findall('[0-9]',x)))
+'''
+#4Write a Python program to check the validity of a password input by the user. The password should satisfy the following conditions:
+#It should have at least 1 letter [a to z]
+#It should have at least 1 number [0 to 9]
+#It should have at least 1 capital letter [A to Z]
+#It should have at least one special character [$, #, @]
+#Minimum length = 6 characters
+#Maximum length = 12 characters
+
+'''import re
+x=str(input("enter the pass word"))
+if (len(re.findall('[a-z]',x)))==0:
+    print("enter a valid password")
+elif (len(re.findall('[A-Z]',x)))==0:
+    print("enter a valid password")
+elif (len(re.findall('[0-9]',x)))==0:
+    print("enter a valid password")
+elif(len(re.findall('[$,#,@]',x)))==0:
+    print("enter a valid password")
+elif(len(x)<6 or len(x)>12):
+    print("enter a valid password")
+else:
+    print("password strong")'''
+
+#5 Write a Python program that takes a string of words separated by spaces, together with a ”target” word, and
+# shows the position of the target word in the string of words.For example, if the string is: ‘we dont need no
+#education we dont need no thought control no we dont’and the target word is ”dont”, then your program should
+#return the list 1, 6, 13 because ”dont” appears at the 1st, 6th, and 13th position in the string. Your program
+ # should return False if the target word doesn’t appear in the string.
+'''
+import re
+x=(input("enter the string"))
+y=str(input("enter the target word"))
+l=(x.split())                              #here out is a list
+# d=dict(enumerate(l))                     #cnvert to dictionary
+print(l)
+for i in range(len(l)):
+    if l[i]==y:
+        print(i,end=" ")
+        '''
