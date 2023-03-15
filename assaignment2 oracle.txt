@@ -1,0 +1,215 @@
+/*1*/
+create table employee(
+empno int,
+ename varchar(20),
+deptno int
+)
+create table emp2(
+id int,
+lastname varchar(20),
+deptid int
+)
+insert all
+into employee(empno ,ename ,deptno )
+values(1,'rahla',23)
+into employee(empno ,ename ,deptno )
+values(2,'steena',24)
+into employee(empno ,ename ,deptno )
+values(3,'mebeena',25)
+into employee(empno ,ename ,deptno )
+values(4,'kripa',25)
+select * from dual
+insert into emp2
+select * from employee
+select * from emp2
+--------------------------------------------------------------------
+/*2*/
+insert all
+into employee(empno ,ename ,deptno )
+values(5,'rahla2',23)
+into employee(empno ,ename ,deptno )
+values(6,'steena2',24)
+select * from dual
+input values will get add on to the table
+---------------------------------------------------------------------
+/*3*/
+CREATE TABLE Department(
+deptno int primary key,
+deptName varchar(20) unique,
+floor int,
+Location varchar(20)
+ );
+drop table department
+desc Department
+
+CREATE TABLE employee(
+empno int primary key ,
+managerid int,
+firstname varchar(20) not null,
+userid int,
+deptno int,
+constraint fk foreign key(deptno) references department(deptno)
+on delete cascade);
+desc employee
+drop table employee
+insert all into department(deptno,deptname,floor,location)
+values(10,'account',2,'trivandrum')
+select * from dual
+select * from department
+insert into employee values(1,001,'rahla',25,10)
+-----------------------------------------------------------------------------------
+/*5*/
+create table customer1(
+customerid int,
+customername varchar(20)
+)
+insert all
+into customer1(customerid,customername)
+values(1,'rahla')
+into customer1(customerid,customername)
+values(2,'stee')
+into customer1(customerid,customername)
+values(3,'mebeena')
+select * from dual;
+
+select * from customer1
+delete from customer1 where customerid=2
+-----------------------------------------------------------------------------------
+/*6*/
+CREATE TABLE employee(
+empno int primary key ,
+managerid int,
+firstname varchar(20) not null,
+userid int,
+deptno int
+)
+insert all
+into employee(empno,firstname)
+values(1,'rahla')
+into employee(empno,firstname)
+values(2,'steena')
+select * from dual
+select * from employee
+-----------------------------------------------------------------------------------
+/*7*/
+create table customer1(
+customerid int,
+customername varchar(20),
+customeraddress varchar(100)
+
+)
+drop table customer1
+insert all
+into customer1(customerid,customername,customeraddress )
+values(1,'rahla','bismilla')
+into customer1(customerid,customername,customeraddress )
+values(3,'mebeena','manzil')
+select * from dual;
+update customer1 set customeraddress='new delhi' where customerid=3;
+select * from customer1
+-----------------------------------------------------------------------------------
+/*8*/
+
+CREATE TABLE employee(
+empno int primary key ,
+managerid int,
+firstname varchar(20) not null,
+userid int,
+deptno int,
+salary number(10,2)
+)
+drop table employee
+insert all
+into employee(empno,managerid,firstname,userid,deptno,salary)
+values(1,02,'rahla',20,32,4000)
+into employee(empno,managerid,firstname,userid,deptno,salary)
+values(2,03,'rahla',28,34,5001)
+into employee(empno,managerid,firstname,userid,deptno,salary)
+values(3,04,'rahla',25,36,6000)
+select * from dual
+delete from employee where salary>5000
+select * from employee
+-----------------------------------------------------------------------------------
+/*9*/
+create table department(
+empno int primary key,
+ename varchar(20),
+deptno int 
+)
+drop table department
+insert all
+into department(empno,ename,deptno)
+values(1,'rahla',1)
+into department(empno,ename,deptno)
+values(2,'stee',2)
+into department(empno,ename,deptno)
+values(3,'mebeena',2)
+select * from dual
+update department set deptno=5,ename='kria' where empno=2;
+-----------------------------------------------------------------------------------
+/*10*/
+create table student(
+stud_id int,
+stud_first_name varchar(20),
+stud_last_name varchar(20),
+stud_age int,
+telephon_no number(10),
+email varchar(40),
+dob date,
+state varchar(30)
+);
+drop table student;
+-----------------------------------------------------------------------------------
+insert all
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(1,'rahla','sherin',23,7767677,'rahla@gmail.com', '01/01/2022','kannur')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(2,'rafi','mohd',24,5666567890,'rafi@gmail.com', '01/02/2023','keralan')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,dob,state)
+values(3,'rahla','chacko',33,1235567890,'01/02/2023','kozhikkod')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,dob,state)
+values(4,'sathar','hjhb',54,'01/02/2023','tvm')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(5,'fasi','chacko',42,1235567890,'romy@gmail.com' ,'05/06/2023','tvm')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(6,'sanju','sana',23,123467890,'hdgf@gmail.com', '01/01/2023','tvm')
+select * from dual;
+select * from student
+delete  from student where stud_id=3;
+------------------------------------------------------------------------------------------
+/*12*/
+delete from student where email is null and telephon_no is null
+-----------------------------------------------------------------------------------
+/*11*/
+delete  from student where stud_age>20
+select * from student
+-----------------------------------------------------------------------------------
+/*13*/
+insert all
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(1,'rahla','sherin',23,7767677,'rahla@gmail.com', '01/01/2022','kannur')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(2,'rafi','mohd',24,5666567890,'rafi@gmail.com', '01/02/2023','keralan')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,dob,state)
+values(3,'rahla','chacko',33,1235567890,'01/02/2023','kozhikkod')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,dob,state)
+values(4,'sathar','hjhb',54,'01/02/2023','tvm')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(5,'fasi','chacko',42,1235567890,'romy@gmail.com' ,'05/06/2023','tvm')
+into student(stud_id,stud_first_name,stud_last_name,stud_Age,telephon_no,email,dob,state)
+values(6,'sana','sana',23,123467890,'hdgf@gmail.com', '06/05/2023','tvm')
+select * from dual;
+delete from student where dob like'05/06%'
+-----------------------------------------------------------------------------------
+/*14*/
+select * from student
+update student set stud_first_name='xxx', dob=CURRENT_DATE where stud_first_name Like '___a%'
+-----------------------------------------------------------------------------------
+/*15*/
+delete from student where stud_first_name like 'a%'
+-----------------------------------------------------------------------------------
+/*16*/
+update student set stud_last_name='jan' where dob like '01%'
+-----------------------------------------------------------------------------------
+/*17*/
+select * from student where state not like 't%'
