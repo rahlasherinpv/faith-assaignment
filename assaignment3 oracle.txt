@@ -1,0 +1,198 @@
+a
+
+create table my_employee(
+emp_id int,
+first_name varchar(20),
+last_name varchar(20),
+salary number(10)
+)
+drop table my_employee
+insert all
+into my_employee(emp_id,first_name,last_name,salary)
+values(1,'rahla','sherinpv',5000)
+into my_employee(emp_id,first_name,last_name,salary)
+values(2,'steena','chakkokk',6000)
+into my_employee(emp_id,first_name,last_name,salary)
+values(3,'mebee','rtfygvghfhgv',5000)
+into my_employee(emp_id,first_name,last_name,salary)
+values(4,'kripa','hghuggyugyg',5000)
+select * from dual
+select * from my_employee
+select concat(substr(first_name,1,1),substr(last_name,1,7)) as userid from my_employee
+----------------------------------------------------------------------------------------------------
+b
+create table employee(
+name varchar(45) not null,
+occupation varchar(35) not null,
+salary number(10)
+)
+drop table employee
+insert all
+into employee(name,occupation,salary)
+values('rela','engineer',5000)
+into employee(name,occupation,salary)
+values('stee','engineer',1000)
+into employee(name,occupation,salary)
+values('sana','engineer',6000)
+into employee(name,occupation,salary)
+values('mebeena','doctor',5000)
+into employee(name,occupation,salary)
+values('sanju','doctor',1000)
+into employee(name,occupation,salary)
+values('fasi','doctor',1000)
+into employee(name,occupation,salary)
+values('raafi','teacher',3000)
+into employee(name,occupation,salary)
+values('fari','teacher',5000)
+select * from dual
+select * from employee
+select occupation,min(salary) from employee group by occupation having min(salary)>1000
+---------------------------------------------------------------------------------------------
+C
+
+
+create table my_employee(
+emp_id int,
+first_name varchar(20),
+last_name varchar(20),
+salary number(10)
+)
+drop table my_employee
+insert all
+into my_employee(emp_id,first_name,last_name,salary)
+values(1,'james','sherinpv',5000)
+into my_employee(emp_id,first_name,last_name,salary)
+values(2,'mareena','chakkokk',6000)
+into my_employee(emp_id,first_name,last_name,salary)
+values(3,'mebee','rtfygvghfhgv',5000)
+into my_employee(emp_id,first_name,last_name,salary)
+values(4,'jacob','hghuggyugyg',5000)
+select * from dual
+select * from my_employee
+
+select initcap(first_name),length(first_name)from my_employee where first_name like ('j%') or first_name  like('m%')
+
+d
+
+select first_name,instr(first_name,'a',1,1)from my_employee
+select instr('google app are great aplication','a',1,1)from dual
+e
+
+select * from employee
+
+
+select occupation,min(salary) from employee group by occupation
+select occupation,max(salary) from employee group by occupation
+select occupation,avg(salary) from employee group by occupation
+select occupation,sum(salary) from employee group by occupation
+
+f
+
+select * from my_employee
+select emp_id,(first_name || ' ' || last_name) as name,salary,round(salary+(salary*15)/100,2) as newsalary from my_employee
+
+g
+
+select emp_id,(first_name || ' ' || last_name) as name,lpad(salary,15,'$') from my_employee
+
+h
+
+
+select * from my_employee
+alter table my_employee add commision number(10)
+update my_employee set commision =500 where emp_id=1
+update my_employee set commision =100 where emp_id=2
+select first_name,nvl(to_char(commision),'no commission')from my_employee
+
+i.
+
+
+drop table student
+create table student(
+stud_id int,
+stud_first_name varchar(20),
+stud_age int,
+telephon_no number(10),
+state varchar(30)
+);
+insert all
+into student(stud_id,stud_first_name,stud_age,telephon_no,state)
+values(1,'rahla',23,45655566,'ketrala')
+into student(stud_id,stud_first_name,stud_age,telephon_no,state)
+values(2,'rahla sherin',23,45655566,'ketrala')
+into student(stud_id,stud_first_name,stud_age,telephon_no,state)
+values(3,'sana fathima',23,45655566,'ketrala')
+into student(stud_id,stud_first_name,stud_age,telephon_no,state)
+values(4,'steena',23,45655566,'ketrala')
+into student(stud_id,stud_first_name,stud_age,telephon_no,state)
+values(5,'kripa s raj',23,45655566,'ketrala')
+select * from dual
+select stud_id,stud_first_name,stud_age,telephon_no,state from student where length(stud_first_name)==10
+
+j
+
+
+drop table employee
+create table employee(
+empid int,
+name varchar(45),
+managerno varchar(35),
+salary number(10)
+)
+drop table employee
+insert all
+into employee(empid,name,managerno,salary)
+values(1,'rela',2,5000)
+into employee(empid,name,managerno,salary)
+values(2,'stee',2,1000)
+into employee(empid,name,managerno,salary)
+values(3,'sana',1,6000)
+into employee(empid,name,managerno,salary)
+values(4,'mebeena',1,5000)
+into employee(empid,name,managerno,salary)
+values(5,'sanju',3,1000)
+into employee(empid,name,managerno,salary)
+values(6,'fasi',3,1000)
+into employee(empid,name,managerno,salary)
+values(7,'raafi',1,3000)
+select * from dual
+select * from employee
+insert all
+into employee(empid,name,salary)
+values(8,'raafi',3000)
+select * from dual
+insert all
+into employee(empid,name,managerno,salary)
+values(9,'rela',2,5500)
+into employee(empid,name,managerno,salary)
+values(2,'stee',7,6000)
+into employee(empid,name,managerno,salary)
+values(3,'sana',5,6000)
+into employee(empid,name,managerno,salary)
+values(4,'mebeena',1,5000)
+into employee(empid,name,managerno,salary)
+values(5,'sanju',5,6700)
+into employee(empid,name,managerno,salary)
+values(6,'fasi',6,3000)
+into employee(empid,name,managerno,salary)
+values(7,'raafi',1,3000)
+select * from dual
+select * from employee
+select managerno, min(salary) from employee where managerno is not null group by managerno  having min(salary)>1000 order by min(salary) desc
+
+select managerno, min(salary) from employee group by managerno  having min(salary)>1000 and managerno is not null order by min(salary) desc
+
+k
+select * from employee
+alter table employee add joiningdate date
+update employee set joiningdate='10/05/2022'
+select name,joiningdate,to_char(next_day(add_months(joiningdate,6),'monday'),'Day, ddspth" of " Month YYYY') as salaryreviewdate from employee
+
+l
+
+select round(months_between(sysdate,joiningdate)) as months_worked from employee order by round(months_between(sysdate,joiningdate)) 
+
+
+m
+
+select name,round((salary/1000),0)*1000 as roundedsalary,(round((salary/1000),0)*1000)*12*.3 as bonus from employee
