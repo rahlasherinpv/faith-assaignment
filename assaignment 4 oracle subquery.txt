@@ -1,0 +1,48 @@
+1. Show the name, hiredate and job for employee with most seniority.
+select * from employee 
+select name,joiningdate,designation from employee where joiningdate=(select min(joiningdate)from employee)
+
+
+2. Create a query to display name, hiredate and salary for all employees who have both same salary and commission as pam. Don’t display Scott in result set.
+alter table employee add  commission int
+update  employee set commission=2000 where empid=1
+update  employee set commission=2000 where empid=2
+update  employee set commission=3000 where empid=3
+update  employee set commission=4000 where empid=4
+update  employee set commission=2000 where empid=5
+update  employee set commission=4000 where empid=6
+update  employee set commission=1000 where empid=7
+update  employee set commission=3000 where empid=8
+update  employee set commission=5000 where empid=9
+update  employee set salary=40000 where empid=2
+select * from employee
+select name ,joiningdate, salary from employee where salary=(select salary from employee where name ='Pam') AND
+commission=(select commission from employee where name = 'Pam') and name<>'Pam'
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+3. Display number, name and salary for all employees who earn more than average salary and who work in a department with any employee whose name contains a ‘T’.
+   select * from employee
+  select empid ,name, salary from employee where salary>(select avg(salary) from employee) and deptno in(select deptno from employee where name like '%T%')
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+4. Write a query to display name, department number and salary of any employee whose department number and salary of any employee who earns a commission.
+
+select name ,deptno ,salary from employee where commission is not null
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+5. Create a query to display employee that earn a salary that is higher than salary of all Clerks. Sort result on salary from highest to lowest.
+
+insert into employee values (10,'rahla','female','clerk',36000,1,1,'01/01/2022',null)
+select name from employee where salary >all(select salary from employee where designation='clerk')
+select * from employee
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+6. List each department that has an average salary less than the company average salary. Show department number and average salary.
+select * from employeesub
+select deptname ,avg(salary) from employeesub group by deptname having avg(salary)<(select avg(salary)  from employeesub)
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+7. Find out the name and department name of manager getting the highest salary.
+
+select empname,deptname from employeesub where salary=(select max(salary) from employeesub where designation='manager') and designation='manager'
+ 
