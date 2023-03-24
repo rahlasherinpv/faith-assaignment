@@ -1,0 +1,144 @@
+drop table manufacturer
+CREATE TABLE computer(
+  serial_no int primary key,
+  mf_name varchar(30),
+  constraint z_1 foreign key(mf_name ) references manufacturer(mf_name ),
+  model varchar(30),
+  weight number(10),
+  empid int,
+  constraint z_2 foreign key(empid ) references employee1(empid),
+  active_status varchar(10)
+)
+
+
+CREATE TABLE manufacturer(
+  mf_name varchar(30) primary key,
+  city varchar(30),
+  state varchar(30)
+  
+)
+
+
+CREATE TABLE employee1(
+  empid int primary key,
+  company varchar(30),
+  phone int,
+  email varchar(30),
+  area_code number(5)
+)
+
+insert all 
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status )
+ values(101,'dell','2018',3,1,'active')
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status)
+ values(102,'lenovo','2022',5,1,'notactive')
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status)
+ values(103,'dell','324',5,2,'active')
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status)
+ values(104,'hp','234',3,3,'active')
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status)
+ values(105,'LG','123',3,4,'active')
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status)
+ values(106,'apple','334',2,5,'active')
+ into computer(serial_no,mf_name ,model ,weight,empid,active_status)
+ values(107,'apple','211',4,2,'notactive')
+select * from dual
+select * from computer
+
+insert all 
+ into employee1(empid,company,phone,email,area_code)
+ values(1,'rahla',9947324356,'raf@gmail.com',22)
+ into employee1(empid,company,phone,email,area_code)
+ values(2,'steena',5567878765,'strr@gmail.com',23)
+ into employee1(empid,company,phone,email,area_code)
+ values(3,'kripa',3345343456,'krhjjj@gmail.com',21)
+ into employee1(empid,company,phone,email,area_code)
+ values(4,'mebeena',9987676754,'menjj@gmail.com',32)
+ into employee1(empid,company,phone,email,area_code)
+ values(5,'rahul',4454676754,'rahnhj@gmail.com',32)
+select * from dual
+select * from employee1
+
+
+insert all
+ into manufacturer(mf_name ,city,state )
+ values('lenovo','kochi','south dakata')
+ into manufacturer(mf_name ,city,state )
+ values('dell','trivandrum','kerala')
+ into manufacturer(mf_name ,city,state )
+ values('hp','calicut','kerala')
+ into manufacturer(mf_name ,city,state )
+ values('LG','kannur','kerala') 
+ into manufacturer(mf_name ,city,state )
+ values('apple','thalasery','ketala')
+select * from dual
+select * from manufacturer
+
+
+/*1 List the manufacturers’ names that are located in South Dakota.*/
+
+select mf_name from manufacturer where state='south dakata'
+
+
+
+/*2. Calculate the average weight of the computers in use.*/
+
+select avg(weight) from computer where active_status ='active'
+
+
+/*3. List the employee names for employees whose area_code starts with 2*/
+
+alter table employee1 rename column company to empname
+select * from employee1
+select empname from employee1 where area_code like '2%'
+
+
+
+/*4. List the serial numbers for computers that have a weight belowaverage.*/
+
+select serial_no from computer where weight< (select avg(weight) from computer)
+
+
+
+/*5. List the manufacturer names of companies that do not have any computers in use. Use a subquery.*/
+
+select distinct mf_name from computer where mf_name in 
+( select mf_name from computer where active_status ='notactive' )
+
+
+
+/*6. Create a VIEW with the list of employee name, their computer serial number, and the city that they were manufactured in. Use a join.*/
+ 
+
+create view emp_v as select e.empname , c.serial_no , m.city  
+from employee1 e
+inner join computer c
+on c.empid=e.empid
+inner join manufacturer m
+on c.mf_name =m.mf_name 
+
+select * from emp_v 
+
+
+/*7. Write a Stored Procedure to accept EmployeeId as parameter andList the serial number, manufacturer name, model, and weight
+ofcomputer that belong to the specified Employeeid.*/
+
+create or replace procedure table(EMP in int)
+is 
+a varchar(20);
+b varchar(20);
+c int ;
+d int ;
+begin
+select serial_no ,mf_name,model ,weight into d,a,b,c from  computer where empid:=EMP;
+dbms_output.put_line('Serial Number ; '||d|| 'Manufacturer : '||a||'Computer model ; '||b||'Computer weight ; '||c);
+end;
+
+
+declare
+  EM int;
+begin
+    EM:=:employeeid;
+    table(EMP) 
+end;
+
